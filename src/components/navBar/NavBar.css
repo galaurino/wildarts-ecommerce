@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
+
+.Nav {
+	margin-top: 0;
+	height: 80px;
+	width: auto;
+}
+
+.NavBar {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	margin: auto;
+}
+
+.NavBar h1 {
+	font-size: 30px;
+	font-family: 'Chewy', cursive;
+}
+
+.NavBar ul {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 500px;
+}
+
+.NavBar ul li {
+	display: inline-block;
+}
+
+.NavBar ul li a {
+	text-decoration: none;
+	color: darkslategrey;
+}
+
+.NavBar-logo {
+	margin-top: 20px;
+	height: 50px;
+}
