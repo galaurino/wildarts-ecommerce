@@ -1,6 +1,7 @@
-import logo from '../logo.png';
+import logo from './logo.png';
 import './NavBar.css';
-import {Title} from './Elements.js';
+import {Title} from '../Title/Title.js';
+import CartWidget from '../cartWidget/CartWidget.js';
 
 
 function NavBar() {
@@ -10,7 +11,7 @@ function NavBar() {
 				<div className="NavBar">
 				<img src={logo} className="NavBar-logo" alt="logo" />
 				<Title />
-				<ul>
+				<ul className="">
 
 					<li><a href="/#">Home</a></li>
 					<li><a href="/#">Commissions</a></li>
@@ -20,6 +21,9 @@ function NavBar() {
 					<li><a href="/#">Sale</a></li>
 
 				</ul>
+
+				<CartWidget />
+
 				</div>
 			</div>
 
