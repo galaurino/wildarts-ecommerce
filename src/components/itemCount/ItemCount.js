@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-function ItemCount({stock}) {
-	const [count, setCount] = useState(0);
+function ItemCount({initial, stock}) {
+	const [count, setCount] = useState(1);
 	const onAdd = () => {
 		if (count>=stock){
 			alert("Has excedido el stock disponible.")
@@ -10,8 +10,8 @@ function ItemCount({stock}) {
 		}
 	};
 	const onSubtract = () => {
-		if (count===0){
-			alert("No puedes tener menos de 0 en cantidad.");
+		if (count<=initial){
+			alert("No puedes tener menos cantidad.");
 		}else {
 			setCount(count - 1)
 		};
