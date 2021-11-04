@@ -1,32 +1,36 @@
 import logo from './logo.svg';
-import {useState} from "react"
+import {useState} from "react";
+import { BrowserRouter, Switch, Route, useParams } from "react-router-dom";
 import './App.css';
-import NavBar from './components/navBar/NavBar.js'
-import ItemListContainer from './components/itemListContainer/ItemListContainer.js'
-import ItemDetailContainer from './components/itemDetailContainer/ItemDetailContainer.js'
+import Home from './components/home/Home.js';
+import NavBar from './components/navBar/NavBar.js';
+import DataBase from './components/item/ItemProducts.js';
+import Category from './components/category/Category.js';
+import ItemListContainer from './components/itemListContainer/ItemListContainer.js';
+import ItemDetailContainer from './components/itemDetailContainer/ItemDetailContainer.js';
 
 function App() {
 
-    const [flag, setFlag] = useState(true)
-    const [id, setId] = useState(null)
-
-    const cambiarFlag = () => {
-      setFlag(!flag)
-    }
-
-    const setNewId = (i) => {
-      setId(i)
-    }
-
   return (
     <div className="App">
-      <NavBar />
-      {
-        flag ?
-        <ItemListContainer cambiarFlag={cambiarFlag} setNewId={setNewId} />
-        :
-        <ItemDetailContainer cambiarFlag={cambiarFlag} id={id} />
-      }
+      <BrowserRouter>
+       <NavBar />
+        <Switch>
+
+          <Route exact path="/">
+            <ItemListContainer />
+          </Route>
+
+          <Route exact path="/category/:id">
+            <ItemListContainer />
+          </Route>
+
+          <Route exact path="/item/:id">
+            <ItemDetailContainer />
+          </Route>
+
+        </Switch>
+      </BrowserRouter>
       
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />

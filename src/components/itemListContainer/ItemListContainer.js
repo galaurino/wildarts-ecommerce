@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import './ItemListContainer.css';
 import ItemCount from '../itemCount/ItemCount.js';
 import ItemList from '../itemList/ItemList.js';
@@ -29,7 +30,9 @@ const ItemListContainer = () => {
 			{items.length
 				? items.map((item) => (
 					<>
-						<ItemList item={item} key={item.id} />
+						<Link to={`/item/${item.id}`}>
+							<ItemList item={item} key={item.id} />
+						</Link>
 						<ItemCount initial="1" stock="8" />
 					</>	
 					))

@@ -18,18 +18,15 @@
 	font-family: 'Chewy', cursive;
 }
 
-.NavBar ul {
+.Navigation {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	width: 500px;
 }
 
-.NavBar ul li {
+.Navigation a {
 	display: inline-block;
-}
-
-.NavBar ul li a {
 	text-decoration: none;
 	color: darkslategrey;
 }

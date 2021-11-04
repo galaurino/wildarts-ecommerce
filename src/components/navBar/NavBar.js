@@ -1,7 +1,15 @@
 import logo from './logo.png';
 import './NavBar.css';
-import {Title} from '../Title/Title.js';
+import { Link } from "react-router-dom";
+import { Title } from '../Title/Title.js';
 import CartWidget from '../cartWidget/CartWidget.js';
+
+const categories = [
+ { url: "shirts", label: "Shirts"},
+ { url: "mugs", label: "Mugs"},
+ { url: "prints", label: "Prints"},
+ { url: "commissions", label: "Commissions"}
+];
 
 
 function NavBar() {
@@ -9,18 +17,17 @@ function NavBar() {
 
 			<div className="Nav">
 				<div className="NavBar">
-				<img src={logo} className="NavBar-logo" alt="logo" />
+				<Link to="/">
+					<img src={logo} className="NavBar-logo" alt="logo" />
+				</Link>
 				<Title />
-				<ul className="">
-
-					<li><a href="/#">Home</a></li>
-					<li><a href="/#">Commissions</a></li>
-					<li><a href="/#">T-Shirts</a></li>
-					<li><a href="/#">Prints</a></li>
-					<li><a href="/#">Other</a></li>
-					<li><a href="/#">Sale</a></li>
-
-				</ul>
+				<div className="Navigation">
+					{categories.map(({url, label}) =>(
+							<Link key={url} to={`/category/${url}`}>
+								{label}
+							</Link>
+						))}
+				</div>
 
 				<CartWidget />
 
