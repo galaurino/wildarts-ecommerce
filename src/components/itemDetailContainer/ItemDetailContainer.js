@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import DataBase from '../item/ItemProducts.js'
 import ItemDetail from '../itemDetail/ItemDetail.js';
 
 const ItemDetailContainer = () => {
-	const [items, setItems] = useState([]);
+	const [item, setItem] = useState(null);
+	const {id} = useParams();
 
 	const getItem = (product) =>
 		new Promise ((resolve, reject) => {
@@ -18,18 +20,18 @@ const ItemDetailContainer = () => {
 
 	useEffect(() => {
 		getItem(DataBase)
-			.then((res) => setItems(res))
+			.then((res) => setItem(res.find((item) => item.id === id)))
 			.catch((err) => console.log(err));
 	}, []);
 
 	return (
 		<>
-			{items.length
-				? items.map((item) => (
+			{item
+				? (
 					<>
 						<ItemDetail item={item} key={item.id} />
 					</>	
-					))
+					)
 				: "Loading..."}
 		</>
 	);

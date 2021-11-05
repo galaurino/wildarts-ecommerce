@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import './ItemListContainer.css';
-import ItemCount from '../itemCount/ItemCount.js';
 import ItemList from '../itemList/ItemList.js';
 import DataBase from '../item/ItemProducts.js'
 
 const ItemListContainer = () => {
 	const [items, setItems] = useState([]);
+	const {id:category} = useParams();
 
 	const products = (product) =>
 		new Promise ((resolve, reject) => {
@@ -21,20 +21,20 @@ const ItemListContainer = () => {
 
 	useEffect(() => {
 		products(DataBase)
-			.then((res) => setItems(res))
+			.then((res) => { category ? setItems(res.filter(item => item.category === category)) : setItems(res)})
+			
 			.catch((err) => console.log(err));
-	}, []);
+	}, [category]);
 
 	return (
 		<>
 			{items.length
 				? items.map((item) => (
-					<>
+					<div className="ItemListContainer">
 						<Link to={`/item/${item.id}`}>
 							<ItemList item={item} key={item.id} />
 						</Link>
-						<ItemCount initial="1" stock="8" />
-					</>	
+					</div>	
 					))
 				: "Loading..."}
 		</>

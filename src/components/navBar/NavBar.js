@@ -5,7 +5,7 @@ import { Title } from '../Title/Title.js';
 import CartWidget from '../cartWidget/CartWidget.js';
 
 const categories = [
- { url: "shirts", label: "Shirts"},
+ { url: "clothing", label: "Clothing"},
  { url: "mugs", label: "Mugs"},
  { url: "prints", label: "Prints"},
  { url: "commissions", label: "Commissions"}

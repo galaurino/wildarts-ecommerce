@@ -1,8 +1,11 @@
+import './ItemList.css'
 import Item from '../item/Item.js';
 
 function ItemList({item:product}) {
 	return (
-		<Item product={product} />
+		<div className="ItemList">
+			<Item product={product} />
+		</div>
 		)
 }
 

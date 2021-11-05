@@ -4,6 +4,7 @@
 	margin-top: 0;
 	height: 80px;
 	width: auto;
+	background-color: white;
 }
 
 .NavBar {
@@ -29,6 +30,10 @@
 	display: inline-block;
 	text-decoration: none;
 	color: darkslategrey;
+}
+
+.Navigation a:hover {
+	color: #8786FB;
 }
 
 .NavBar-logo {
