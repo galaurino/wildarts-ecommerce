@@ -1,10 +1,6 @@
-import logo from './logo.svg';
-import {useState} from "react";
 import { BrowserRouter, Switch, Route, useParams } from "react-router-dom";
 import './App.css';
-import Home from './components/home/Home.js';
 import NavBar from './components/navBar/NavBar.js';
-import DataBase from './components/item/ItemProducts.js';
 import ItemListContainer from './components/itemListContainer/ItemListContainer.js';
 import ItemDetailContainer from './components/itemDetailContainer/ItemDetailContainer.js';
 

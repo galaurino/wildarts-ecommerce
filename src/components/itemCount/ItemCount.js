@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-function ItemCount({initial, stock}) {
+function ItemCount({initial, stock, onAdd}) {
 	const [count, setCount] = useState(Number(initial));
-	const onAdd = () => {
+	const onIncrement = () => {
 		if (count>=stock){
 			alert("Has excedido el stock disponible.")
 		}else {
@@ -24,7 +24,9 @@ function ItemCount({initial, stock}) {
 
 		{count}
 
-		<button onClick={onAdd}>+</button>
+		<button onClick={onIncrement}>+</button>
+
+		<button onClick={() => onAdd(count)}>Agregar al Carrito</button>
 
 		</div>
 		);

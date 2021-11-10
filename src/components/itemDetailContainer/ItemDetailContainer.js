@@ -15,7 +15,7 @@ const ItemDetailContainer = () => {
 				}else {
 					reject("Algo salió mal.");
 				}
-			}, 2000);
+			}, 1000);
 		});
 
 	useEffect(() => {
